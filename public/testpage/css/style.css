@@ -1,0 +1,74 @@
+
+.submit
+{
+    margin-left: 1000px;
+}
+.f
+{
+    font-style: italic;
+    margin-left: 80%;
+}
+.qb
+{
+    display: flex;
+    margin-top: 5%;
+}
+.photo
+{
+    margin-top: 3%;
+    vertical-align: middle;
+    display: inline-flex;
+    width: 40%;
+    height: 40%;
+    float: right;
+    margin-right: 2%;
+  
+}
+
+.question
+{
+    align-content: center;
+    font-weight: bold;
+    font-style: normal;
+    font-size: x-large;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+
+}
+.opt {
+    align-content: center;
+    font-weight: initial;
+    font-style: initial;
+    font-size: x-large;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    float: left;
+}
+
+.buttons
+{
+    margin-top: 5%;
+}
+.previous
+{
+    margin-left: 2%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    float: left;
+}
+.next
+{
+    margin-right: 2%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    
+    float: right;
+}
+.c2
+{
+    width: 1000px;
+}

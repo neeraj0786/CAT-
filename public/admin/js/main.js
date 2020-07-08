@@ -9,7 +9,7 @@
 
     })
 
-
+   
 addPostBtn.addEventListener('click',function() {
     let articlesTab = document.getElementById('v-pills-articles');
     articlesTab.classList.remove('show');
@@ -30,9 +30,9 @@ async function addPosts()
         let postHTML =`<article class="d-flex justify-content-between align-items-center articles-inline">
         <div class="num w5">${i++}</div>
         <input class="id" type ="hidden" value ="${post.id}">
-        <div class="name w30">${post.title}</div>
+        <div class="name w30">${post.question.substr(0,7)}</div>
         <div class="date w30">${post.date}</div>
-        <div class="country w20">${post.country}</div>
+        <div class="country w20">${post.correctOption}</div>
         <div class="Edit w10"><button class="btn btn-link btn-update">Edit</button></div>
         <div class="remove w5"><button class="btn btn-link btn-remove">X</button></div>
     </article>`;

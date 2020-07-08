@@ -1,21 +1,23 @@
 let express = require('express');
 let app = express();
 let mongoose = require('mongoose');
-let postsRouter = require('./routes/posts')
+let questionsRouter = require('./routes/questions')  // changed
 let uniqid = require('uniqid'); 
 let multer = require('multer'); 
 let callbackrequestsRouter = require('./routes/callback-requests');
 let emailRouter = require('./routes/emails');
 let userRouter = require('./routes/users')
-let Post = require('./models/posts').Post;
+let candidateRouter = require('./routes/candidates');
+let Question = require('./models/questions').Question; //changed
 let cookieparser = require('cookie-parser');
 let auth = require('./controllers/auth');
+let auth2 = require('./controllers/auth2');
 
 
 app.set('view engine', 'ejs');
 
 
-mongoose.connect('mongodb://localhost/Travels', { useNewUrlParser: true }); // connecting to database mongodb port 27017
+mongoose.connect('mongodb://localhost/Cat', { useNewUrlParser: true }); // connecting to database mongodb port 27017
 app.use(express.json());
 
 
@@ -31,21 +33,26 @@ let id =1;
 
 app.use(cookieparser());
 app.use(express.static('public')); //redirecting localhost 3000 to index.html
-app.use('/posts',postsRouter);
+app.use('/questions',questionsRouter); // changed
 app.use('/callback-requests',callbackrequestsRouter);
 app.use('/emails',emailRouter);
 app.use('/users',userRouter);
+app.use('/candidates',candidateRouter);
 
-app.get('/sight', async (req, resp) => {
+app.get('/sight', async (req, resp) => {    //changed
   
     let id = req.query.id;
-    let post = await Post.findOne({id : id});
+    let question = await Question.findOne({id : id});
 
     resp.render('sight', {
-        title: post.title,
-        imageURL: post.imageURL,
-        date: post.date,
-        description: post.description
+        question : question.question,
+        option1 : question.option1,
+        option2 : question.option2,
+        option3 : question.option3,
+        option4 : question.option4,
+        correct_option : question.correct_option,
+        imageURL: question.imageURL,
+        date: question.date
     })
 })
 app.get('/admin', (req,resp)=>{
@@ -54,6 +61,17 @@ app.get('/admin', (req,resp)=>{
 
     if(token && auth.checkToken(token))
     resp.render('admin');
+    else
+    {
+        resp.redirect('/login');
+    }
+})
+app.get('/test', (req,resp)=>{
+
+    let token = req.cookies['auth_token2'];
+
+    if(token && auth2.checkToken2(token))
+    resp.render('test');
     else
     {
         resp.redirect('/login');
