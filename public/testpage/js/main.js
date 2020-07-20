@@ -18,7 +18,7 @@ function sessionout()
 }
 
 logoutbtn.addEventListener('click',sessionout);
-setTimeout(sessionout, 10000, 'funky');
+setTimeout(sessionout, 1000000, 'funky');
 document.addEventListener('DOMContentLoaded', async function() {
 
     addPosts();
