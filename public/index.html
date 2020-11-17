@@ -139,5 +139,11 @@
 	<script src="js/questions.js"></script>
 	<script src="js/emails.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+		$(".nav-item").on("click", function(){
+		$(".navbar-nav").find(".active").removeClass("active");
+		$(this).addClass("active");
+	  });
+	</script>
 </body>
 </html>

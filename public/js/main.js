@@ -14,7 +14,7 @@ let emailRequestForm= document.querySelector('.email-form');
             body: JSON.stringify({
                 phoneNumber: phoneInp.value
             })
-        }).then((resp) => resp.text()).then(() => alert('We will call '+ phoneInp.value +' ASAP !'));
+        }).then((resp) => resp.text()).then(() => alert('We will call '+ phoneInp.value +' ASAP !'), callMeForm.reset());
     })
    
 
@@ -30,5 +30,5 @@ emailRequestForm.addEventListener('submit', function(e) {
             email:document.querySelector('#email').value,
             message:document.querySelector('#message').value
         })
-    }).then((resp) => resp.text()).then((data) => console.log(data));
+    }).then((resp) => resp.text()).then((data) => console.log(data), emailRequestForm.reset());
 })

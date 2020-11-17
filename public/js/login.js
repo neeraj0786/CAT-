@@ -74,7 +74,7 @@ registerForm.addEventListener('submit', function(e){
             'Content-Type': 'application/json'
         },
         body : JSON.stringify({email , password})
-    }).then((resp)=>resp.text()).then((data)=>alert(data));
+    }).then((resp)=>resp.text()).then((data)=> {alert(data),registerForm.reset()});
 
 
     

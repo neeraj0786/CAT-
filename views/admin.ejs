@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <question>Admin Page</question>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -185,5 +184,11 @@
     <script src="/admin/js/emails.js"></script>
     <script src="/admin/js/main.js"></script>
     <script src="/admin/js/post.js"></script>
+    <script>
+      $(".nav-item").on("click", function(){
+        $(".navbar-nav").find(".active").removeClass("active");
+        $(this).addClass("active");
+      });
+    </script>
 </body>
 </html>
