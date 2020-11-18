@@ -17,7 +17,12 @@ let auth2 = require('./controllers/auth2');
 app.set('view engine', 'ejs');
 
 
-mongoose.connect('mongodb://localhost/Cat', { useNewUrlParser: true }); // connecting to database mongodb port 27017
+mongoose.connect('mongodb://localhost/Cat', { 
+    useUnifiedTopology: true, // Averted DeprecationWarning [https://github.com/Automattic/mongoose/issues/8156].
+    useNewUrlParser: true 
+})
+.then(() => console.log('DB Connected!')) // connecting to database mongodb port 27017
+.catch(err => { console.log(`DB Connection Error: ${err.message}`)})
 app.use(express.json());
 
 

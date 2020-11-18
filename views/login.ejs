@@ -17,7 +17,7 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -25,13 +25,13 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" >Contact Us</a>
-	  </li>
-	  <li class="nav-item">
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/admin" >Login Page</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 call-me-form">
-      <input class="form-control mr-sm-2" type="search" placeholder="Phone Number" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Phone Number" aria-label="Search" pattern="^\+?\d[\d -]{8,12}\d$">
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Call Me</button>
     </form>
   </div>
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="form-group">
                                       <label for="s-sign-in-email">Email address</label>
-                                      <input type="email" class="form-control" id="s-sign-in-email" aria-describedby="emailHelp" placeholder="Enter email">
+                                      <input type="email" class="form-control" id="s-sign-in-email" aria-describedby="emailHelp" placeholder="Enter email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
                                       
                                     </div>
                                    
@@ -83,12 +83,12 @@
                                     </div>
                                     <div class="form-group">
                                       <label for="s-sign-in-key">Invitation Key</label>
-                                      <input type="text" class="form-control" id="s-sign-in-key"  placeholder="Enter Invitation Key">
+                                      <input type="text" class="form-control" id="s-sign-in-key" required placeholder="Enter Invitation Key">
                                       
                                     </div>
                                     <div class="form-group">
                                       <label for="s-sign-in-contact">Contact Number</label>
-                                      <input type="text" class="form-control" id="s-sign-in-contact"  placeholder="Enter Contact Number">
+                                      <input type="text" class="form-control" id="s-sign-in-contact" required pattern="^\+?\d[\d -]{8,12}\d$" placeholder="Enter Contact Number">
                                       
                                     </div>
                                     
@@ -103,7 +103,7 @@
                                 <form class="sign-in-form">
                                     <div class="form-group">
                                       <label for="sign-in-email">Email address</label>
-                                      <input type="email" class="form-control" id="sign-in-email" aria-describedby="emailHelp" placeholder="Enter email">
+                                      <input type="email" class="form-control" id="sign-in-email" aria-describedby="emailHelp" placeholder="Enter email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
                                       
                                     </div>
                                     <div class="form-group">
@@ -122,7 +122,7 @@
                                 <form class="register-form">
                                     <div class="form-group">
                                       <label for="register-email">Email address</label>
-                                      <input type="email" class="form-control" id="register-email" aria-describedby="emailHelp" placeholder="Enter email">
+                                      <input type="email" class="form-control" id="register-email" aria-describedby="emailHelp" placeholder="Enter email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
                                       
                                     </div>
                                     <div class="form-group">
@@ -150,5 +150,11 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/login.js"></script>
+    <script>
+      $(".navbar-nav .nav-item").on("click", function(){
+      $(".navbar-nav").find(".active").removeClass("active");
+      $(this).addClass("active");
+    });
+    </script>
 </body>
 </html>
